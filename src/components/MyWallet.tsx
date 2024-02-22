@@ -1,4 +1,4 @@
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 import {
   WalletDisconnectButton,
   WalletModalProvider,
@@ -6,12 +6,10 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { Header, Payload, SIWS } from "@web3auth/sign-in-with-solana";
 import bs58 from "bs58";
-import React, { useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
-import { saveSolanaWallet } from "./apiCalls/sign";
+import React, { useState } from "react";
+// import { saveSolanaWallet } from "../apiCalls/sign";
 
 const MyWallet = (props: any) => {
-  const { connection } = useConnection();
   let walletAddress = "";
 
   // if you use anchor, use the anchor hook instead
@@ -102,21 +100,20 @@ const MyWallet = (props: any) => {
 
           if (data?.success) {
             props?.setLoading(false);
-            let saveData = await saveSolanaWallet(
-              props?.ethAddress,
-              props?.ethToken,
-              data?.address,
-              data?.token
-            );
-            console.log("saveData :>> ", saveData);
-            if (saveData?.success) {
-              props?.setLicenseCode(saveData?.temp_password_desktop);
-              props?.setStep(3);
-            } else {
-              props?.setStep(1);
+            // TODO local storage a token ve address yaz
+            // let saveData = await saveSolanaWallet(
+            //   props?.ethAddress,
+            //   props?.ethToken,
+            //   data?.address,
+            //   data?.token
+            // );
+            // console.log("saveData :>> ", saveData);
+            // if (saveData?.success) {
+            //   props?.setLicenseCode(saveData?.temp_password_desktop);
+            // } else {
 
-              toast.error(saveData?.error_message);
-            }
+            //   toast.error(saveData?.error_message);
+            // }
 
             return;
           }

@@ -1,4 +1,4 @@
-import DesktopLicense from "../../DesktopLicense";
+import DesktopLicense from "../../components/Sign";
 
 const Home = () => {
   return (

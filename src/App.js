@@ -15,8 +15,8 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import { FC, ReactNode, useMemo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DesktopLicense from "./DesktopLicense";
-import MyWallet from "./MyWallet";
+import DesktopLicense from "./components/Sign";
+import MyWallet from "./components/MyWallet";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
