@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import LoadingComponent from "./LoadingComponent";
 import MyWallet from "./MyWallet";
 import ConnectEthereum from "./ConnectEthereum";
+import LogoutEth from "./LogoutEth";
+import LogoutSol from "./LogoutSol";
 
 const Sign = () => {
   // const [copyLicense, setCopyLicense] = useState(false);
@@ -22,6 +24,8 @@ const Sign = () => {
         solToken={solToken}
         // setStep={setStep}
       />
+      <LogoutEth />
+      <LogoutSol />
     </div>
   );
 };

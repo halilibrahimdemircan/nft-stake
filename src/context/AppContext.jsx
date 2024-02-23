@@ -7,10 +7,10 @@ const AppContext = createContext();
 
 // İlk durum (initial state)
 const initialState = {
-  ethToken: "",
-  solToken: "",
-  ethAddress: "",
-  solAddress: "",
+  ethToken: localStorage.getItem("initEthToken") || "",
+  solToken: localStorage.getItem("initSolToken") || "",
+  ethAddress: localStorage.getItem("initEthAddress") || "",
+  solAddress: localStorage.getItem("initSolAddress") || "",
 };
 
 // Reducer fonksiyonu

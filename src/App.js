@@ -21,36 +21,26 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Inventory from "./pages/Inventory";
-import { AppProvider } from "./context/AppContext";
+import { AppProvider, useAppContext } from "./context/AppContext";
 import { ethCheckAccount } from "./apiCalls/checkAccount";
 
 export const App = () => {
+  const { state, dispatch } = useAppContext();
+
   useEffect(async () => {
-    if (
-      localStorage.getItem("initEthAddress")?.length > 0 &&
-      localStorage.getItem("initEthToken")?.length > 0
-    ) {
+    if (state.ethAddress?.length > 0 && state.ethToken?.length > 0) {
       const accountData = await ethCheckAccount(
-        localStorage.getItem("initEthToken"),
-        localStorage.getItem("initEthAddress")
+        state.ethToken,
+        state.ethAddress
       );
-      console.log("accountData :>> ", accountData);
+      console.log("eth accountData :>> ", accountData);
     }
-  }, [
-    localStorage.getItem("initEthAddress"),
-    localStorage.getItem("initEthToken"),
-  ]);
+  }, [state.ethAddress, state.ethToken]);
   useEffect(() => {
-    if (
-      localStorage.getItem("initSolAddress")?.length > 0 &&
-      localStorage.getItem("initSolToken")?.length > 0
-    ) {
+    if (state.solAddress?.length > 0 && state.solToken?.length > 0) {
       console.log("sol-check account test");
     }
-  }, [
-    localStorage.getItem("initSolAddress"),
-    localStorage.getItem("initSolToken"),
-  ]);
+  }, [state.solAddress, state.solToken]);
 
   return (
     <Context>
@@ -79,24 +69,22 @@ const Context = ({ children }) => {
   );
 
   return (
-    <AppProvider>
-      <ConnectionProvider endpoint={endpoint}>
-        <WalletProvider wallets={wallets}>
-          <WalletModalProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  <Route path="/inventory" element={<Inventory />} />
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={wallets}>
+        <WalletModalProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="/inventory" element={<Inventory />} />
 
-                  <Route path="*" element={<NoPage />} />
-                </Route>
-              </Routes>
-            </BrowserRouter>
-          </WalletModalProvider>
-        </WalletProvider>
-      </ConnectionProvider>
-    </AppProvider>
+                <Route path="*" element={<NoPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
   );
 };
 
