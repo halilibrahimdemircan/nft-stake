@@ -13,7 +13,7 @@ import {
   TorusWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
-import { FC, ReactNode, useMemo } from "react";
+import { FC, ReactNode, useEffect, useMemo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DesktopLicense from "./components/Sign";
 import MyWallet from "./components/MyWallet";
@@ -22,8 +22,36 @@ import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Inventory from "./pages/Inventory";
 import { AppProvider } from "./context/AppContext";
+import { ethCheckAccount } from "./apiCalls/checkAccount";
 
 export const App = () => {
+  useEffect(async () => {
+    if (
+      localStorage.getItem("initEthAddress")?.length > 0 &&
+      localStorage.getItem("initEthToken")?.length > 0
+    ) {
+      const accountData = await ethCheckAccount(
+        localStorage.getItem("initEthToken"),
+        localStorage.getItem("initEthAddress")
+      );
+      console.log("accountData :>> ", accountData);
+    }
+  }, [
+    localStorage.getItem("initEthAddress"),
+    localStorage.getItem("initEthToken"),
+  ]);
+  useEffect(() => {
+    if (
+      localStorage.getItem("initSolAddress")?.length > 0 &&
+      localStorage.getItem("initSolToken")?.length > 0
+    ) {
+      console.log("sol-check account test");
+    }
+  }, [
+    localStorage.getItem("initSolAddress"),
+    localStorage.getItem("initSolToken"),
+  ]);
+
   return (
     <Context>
       <Content />

@@ -10,8 +10,6 @@ function getLibrary(provider) {
 }
 
 ReactDOM.render(
-  // @ts-ignore
-
   <Web3ReactProvider getLibrary={getLibrary}>
     <App />
   </Web3ReactProvider>,

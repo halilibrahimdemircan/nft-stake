@@ -7,16 +7,31 @@ const AppContext = createContext();
 
 // İlk durum (initial state)
 const initialState = {
-  counter: 0,
+  ethToken: "",
+  solToken: "",
+  ethAddress: "",
+  solAddress: "",
 };
 
 // Reducer fonksiyonu
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT":
-      return { ...state, counter: state.counter + 1 };
-    case "DECREMENT":
-      return { ...state, counter: state.counter - 1 };
+    case "SETETHCREDENTIALS":
+      return {
+        ...state,
+        ethToken: action.payload.ethToken,
+        ethAddress: action.payload.ethAddress,
+      };
+    case "SETSOLCREDENTIALS":
+      return {
+        ...state,
+        solToken: action.payload.solToken,
+        solAddress: action.payload.solAddress,
+      };
+    case "LOGOUTETH":
+      return { ...state, ethToken: "", ethAddress: "" };
+    case "LOGOUTSOL":
+      return { ...state, solToken: "", solAddress: "" };
     default:
       return state;
   }

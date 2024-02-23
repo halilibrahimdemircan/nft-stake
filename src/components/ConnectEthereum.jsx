@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { signAddressComplete, signAddressStart } from "../apiCalls/sign";
+import { useAppContext } from "../context/AppContext";
 
 const ConnectEthereum = () => {
   const [ethAddress, setEthAddress] = useState("");
   const [ethToken, setEthToken] = useState("");
   const [connectedWallet, setConnectedWallet] = useState("");
+  const { state, dispatch } = useAppContext();
 
   useEffect(() => {
     async function getConnectedWallet() {
@@ -84,6 +86,13 @@ const ConnectEthereum = () => {
         if (completeData.success) {
           setEthAddress(completeData?.address);
           setEthToken(completeData?.token);
+          dispatch({
+            type: "SETETHCREDENTIALS",
+            payload: {
+              ethAddress: completeData?.address,
+              ethToken: completeData?.token,
+            },
+          });
           // setStep(2);
           localStorage.setItem("initEthAddress", completeData?.address);
           localStorage.setItem("initEthToken", completeData?.token);

@@ -9,10 +9,11 @@ import bs58 from "bs58";
 import React, { useEffect, useState } from "react";
 
 import ConnectSolana from "./ConnectSolana";
-
+import { useAppContext } from "../context/AppContext";
 // import { saveSolanaWallet } from "../apiCalls/sign";
 
 const MyWallet = (props) => {
+  const { state, dispatch } = useAppContext();
   let walletAddress = "";
 
   // if you use anchor, use the anchor hook instead
@@ -99,24 +100,17 @@ const MyWallet = (props) => {
         });
 
         const data = await response.json();
-
+        let object = {
+          solToken: "",
+          solAddress: "",
+        };
         if (data?.success) {
-          // props?.setLoading(false);
-          props.setSolToken(data?.token);
+          object.solToken = data?.token;
+          object.solAddress = data?.address;
+          dispatch({ type: "SETSOLCREDENTIALS", payload: object });
           // TODO local storage a token ve address yaz
-          // let saveData = await saveSolanaWallet(
-          //   props?.ethAddress,
-          //   props?.ethToken,
-          //   data?.address,
-          //   data?.token
-          // );
-          // console.log("saveData :>> ", saveData);
-          // if (saveData?.success) {
-          //   props?.setLicenseCode(saveData?.temp_password_desktop);
-          // } else {
-
-          //   toast.error(saveData?.error_message);
-          // }
+          localStorage.setItem("initSolAddress", completeData?.address);
+          localStorage.setItem("initSolToken", completeData?.token);
 
           return;
         }
@@ -139,7 +133,7 @@ const MyWallet = (props) => {
   //     props?.setSolToken("");
   //   }
   // }, [wallet, props?.solToken]);
-
+  console.log("state :>> ", state);
   return (
     <>
       {
