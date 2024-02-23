@@ -5,7 +5,7 @@ import ConnectEthereum from "./ConnectEthereum";
 import LogoutEth from "./LogoutEth";
 import LogoutSol from "./LogoutSol";
 
-const Sign = () => {
+const Sign = ({ type }) => {
   // const [copyLicense, setCopyLicense] = useState(false);
   // const [copyWallet, setCopyWallet] = useState(false);
 
@@ -13,7 +13,11 @@ const Sign = () => {
   const [solAddress, setSolAddress] = useState("");
 
   return (
-    <div className="font-inter text-white flex items-center justify-center  gap-4">
+    <div
+      className={`flex ${
+        type == "col" ? "flex-col" : ""
+      } font-inter text-white  items-center justify-center   gap-4`}
+    >
       <ConnectEthereum />
       <MyWallet
         setSolToken={setSolToken}
@@ -24,8 +28,8 @@ const Sign = () => {
         solToken={solToken}
         // setStep={setStep}
       />
-      <LogoutEth />
-      <LogoutSol />
+      {/* <LogoutEth />
+      <LogoutSol /> */}
     </div>
   );
 };

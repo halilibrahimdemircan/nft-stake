@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import Sign from "../../components/Sign";
+import mbLogo from "../../images/mbLogo.png";
 
 const Layout = () => {
   const links = [
@@ -18,8 +19,8 @@ const Layout = () => {
   ];
   return (
     <>
-      <nav className="text-white px-8 py-4 border border-white border-t-0 border-l-0 border-r-0 border-b-1 flex justify-between">
-        <ul className="flex gap-2">
+      <nav className="text-white px-[140px] h-[100px] py-4 bg-[] border border-[#383838] border-t-0 border-l-0 border-r-0 border-b-1 flex justify-between items-center">
+        {/* <ul className="flex gap-2">
           {links.map((item, index) => {
             return (
               <li key={index}>
@@ -31,7 +32,10 @@ const Layout = () => {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
+        <Link to={"/"}>
+          <img src={mbLogo} alt="" />
+        </Link>
         <Sign />
       </nav>
 

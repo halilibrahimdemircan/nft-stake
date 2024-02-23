@@ -11,6 +11,7 @@ const initialState = {
   solToken: localStorage.getItem("initSolToken") || "",
   ethAddress: localStorage.getItem("initEthAddress") || "",
   solAddress: localStorage.getItem("initSolAddress") || "",
+  activeNetwork: "",
 };
 
 // Reducer fonksiyonu
@@ -32,6 +33,8 @@ const reducer = (state, action) => {
       return { ...state, ethToken: "", ethAddress: "" };
     case "LOGOUTSOL":
       return { ...state, solToken: "", solAddress: "" };
+    case "SETNETWORK":
+      return { ...state, activeNetwork: action.payload };
     default:
       return state;
   }

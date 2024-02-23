@@ -3,7 +3,10 @@ import HeaderPiece from "./HeaderPiece";
 
 const Header = () => {
   return (
-    <div className="w-full flex gap-12">
+    <div
+      style={{ width: "1058px", maxWidth: "1058px" }}
+      className=" flex gap-12 "
+    >
       <HeaderPiece text={"OWNED"} quantity={16} />
       <div className="border border-[#252525]"></div>
       <HeaderPiece text={"STAKED"} quantity={5} />

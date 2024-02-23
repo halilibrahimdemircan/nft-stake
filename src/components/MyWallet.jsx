@@ -133,7 +133,6 @@ const MyWallet = (props) => {
   //     props?.setSolToken("");
   //   }
   // }, [wallet, props?.solToken]);
-  console.log("state :>> ", state);
   return (
     <>
       {
@@ -145,7 +144,7 @@ const MyWallet = (props) => {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
+            alignItems: "start",
             justifyContent: "center",
           }}
         >
