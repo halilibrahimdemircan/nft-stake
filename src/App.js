@@ -20,6 +20,8 @@ import MyWallet from "./components/MyWallet";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
+import Inventory from "./pages/Inventory";
+import { AppProvider } from "./context/AppContext";
 
 export const App = () => {
   return (
@@ -49,21 +51,24 @@ const Context = ({ children }) => {
   );
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets}>
-        <WalletModalProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
+    <AppProvider>
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets}>
+          <WalletModalProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="/inventory" element={<Inventory />} />
 
-                <Route path="*" element={<NoPage />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
+                  <Route path="*" element={<NoPage />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </AppProvider>
   );
 };
 

@@ -1,9 +1,10 @@
-import DesktopLicense from "../../components/Sign";
+import Sign from "../../components/Sign";
 
 const Home = () => {
   return (
     <h1>
-      <DesktopLicense />
+      {/* <Sign /> */}
+      Home
     </h1>
   );
 };

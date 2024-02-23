@@ -63,7 +63,7 @@ body {
   text-align: center;
 }
 
-.walletButtons {
+/* .walletButtons {
   align-content: stretch;
   display: flex;
   justify-content: center;
@@ -89,7 +89,7 @@ body {
   color: #9945ff !important;
   text-decoration: none;
   border-radius: 6px;
-}
+} */
 
 .web3auth {
   width: 100%;
@@ -172,4 +172,58 @@ p {
 .tooltip {
   visibility: hidden;
   position: absolute;
+}
+.solanaButton {
+  border-radius: 8px;
+  border: 1px solid #4ffffa;
+  background: linear-gradient(
+    111deg,
+    rgba(0, 25, 17, 0.86) 37.85%,
+    rgba(9, 1, 12, 0.86) 80%,
+    rgba(63, 15, 76, 0.86) 115.8%
+  );
+  padding: 0px 12px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.solanaButton:hover {
+  border: 1px solid #fd87ff;
+  background: linear-gradient(
+    93deg,
+    #14ecab 0%,
+    #c03cf4 53.86%,
+    #db5cff 99.62%
+  );
+}
+.solanaButton:active {
+  border-radius: 8px;
+  border: 1px solid #fd87ff;
+  background: linear-gradient(
+    93deg,
+    #0e8863 0%,
+    #5f137d 53.86%,
+    #68177e 99.62%
+  );
+}
+.solConnectButton:active .solanaButton {
+  border-radius: 8px;
+  border: 1px solid #fd87ff;
+  background: linear-gradient(
+    93deg,
+    #0e8863 0%,
+    #5f137d 53.86%,
+    #68177e 99.62%
+  );
+}
+.solConnectButton:hover .solanaButton {
+  border-radius: 8px;
+  border: 1px solid #fd87ff;
+  background: linear-gradient(
+    93deg,
+    #0e8863 0%,
+    #5f137d 53.86%,
+    #68177e 99.62%
+  );
 }
