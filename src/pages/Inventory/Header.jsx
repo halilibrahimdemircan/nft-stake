@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div
       style={{ width: "1058px", maxWidth: "1058px" }}
-      className=" flex justify-between items-center"
+      className=" flex justify-between items-center font-rubik"
     >
       <div className="flex gap-12 ">
         <HeaderPiece text={"OWNED"} quantity={state?.nfts?.length} />
@@ -20,7 +20,11 @@ const Header = () => {
         />
         <div className="border border-[#252525]"></div>
 
-        <HeaderPiece text={"EARNED SHROOMS"} quantity={2044182} bg={true} />
+        <HeaderPiece
+          text={"EARNED SHROOMS"}
+          quantity={state?.totalShrooms}
+          bg={true}
+        />
       </div>
       <div>
         <UserInfo />

@@ -5,7 +5,14 @@ module.exports = {
     "./public/index.html", // HTML dosyası
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        "ibm-plex-mono": ["IBM Plex Mono", "monospace"],
+        sora: ["Sora", "sans-serif"],
+        rubik: ["Rubik", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

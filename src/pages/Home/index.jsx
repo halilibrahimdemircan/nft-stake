@@ -11,7 +11,7 @@ const Home = () => {
         {" "}
         Setup your inventory for staking NFTs
       </h2>
-      <div className="flex justify-between w-full  ">
+      <div className="flex justify-between w-full   gap-[112px]">
         <div className="flex gap-[65px] w-full">
           <div className="flex flex-col gap-[52px]">
             <div className="flex flex-col gap-4">

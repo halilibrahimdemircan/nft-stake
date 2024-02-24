@@ -38,8 +38,8 @@ const reducer = (state, action) => {
     case "SETNETWORK":
       localStorage.setItem("activeNetwork", action.payload);
       return { ...state, activeNetwork: action.payload };
-    // case "SETTOTALSHROOMS":
-    //   return { ...state, totalShrooms: action.payload };
+    case "SETTOTALSHROOMS":
+      return { ...state, totalShrooms: action.payload };
     case "SETNFTS":
       // return { ...state, nfts: action.payload };
       return {

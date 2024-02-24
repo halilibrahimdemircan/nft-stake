@@ -17,10 +17,15 @@ const Inventory = () => {
       nfts = await getStakeNfts("ETH", state?.ethToken, state?.ethAddress);
       if (nfts?.eth?.success) {
         dispatch({ type: "SETNFTS", payload: nfts?.eth?.mushboomers });
+        dispatch({
+          type: "SETTOTALSHROOMS",
+          payload: nfts?.eth?.total_shrooms,
+        });
       }
     } else {
       nfts = await getStakeNfts("SOL", state?.solToken, state?.solAddress);
       dispatch({ type: "SETNFTS", payload: nfts?.sol?.mushboomers });
+      dispatch({ type: "SETTOTALSHROOMS", payload: nfts?.sol?.total_shrooms });
     }
   }, [state?.activeNetwork]);
 
