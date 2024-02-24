@@ -13,15 +13,14 @@ import {
   TorusWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
-import { FC, ReactNode, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DesktopLicense from "./components/Sign";
-import MyWallet from "./components/MyWallet";
+
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Inventory from "./pages/Inventory";
-import { AppProvider, useAppContext } from "./context/AppContext";
+import { useAppContext } from "./context/AppContext";
 import { ethCheckAccount, solCheckAccount } from "./apiCalls/checkAccount";
 
 export const App = () => {
@@ -38,7 +37,6 @@ export const App = () => {
           localStorage.removeItem("initEthToken"),
           dispatch({ type: "LOGOUTETH" });
       }
-      console.log("eth accountData :>> ", accountData);
     }
   }, [state.ethAddress, state.ethToken]);
   useEffect(async () => {
@@ -51,8 +49,8 @@ export const App = () => {
         localStorage.removeItem("initSolAddress"),
           localStorage.removeItem("initSolToken"),
           dispatch({ type: "LOGOUTSOL" });
+      } else {
       }
-      console.log("sol accountData :>> ", accountData);
     }
   }, [state.solAddress, state.solToken]);
 

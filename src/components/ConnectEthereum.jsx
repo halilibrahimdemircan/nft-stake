@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { signAddressComplete, signAddressStart } from "../apiCalls/sign";
 import { useAppContext } from "../context/AppContext";
+import LogoutEth from "./LogoutEth";
 
 const ConnectEthereum = () => {
   const [ethAddress, setEthAddress] = useState("");
@@ -103,8 +104,19 @@ const ConnectEthereum = () => {
     }
   }
   return (
-    <div className="flex gap-2 items-center whitespace-nowrap border h-12 px-3 rounded-lg font-semibold">
-      {/* <div
+    <>
+      {state?.ethToken && state?.ethAddress ? (
+        <LogoutEth />
+      ) : (
+        <div
+          style={{
+            borderRadius: "8px",
+            border: "0.6px solid #868686",
+            background: "rgba(56, 56, 56, 0.86)",
+          }}
+          className="flex gap-4 items-center whitespace-nowrap border h-12 px-3 rounded-lg font-normal"
+        >
+          {/* <div
       >
         Connected Eth Wallet:{" "}
         {connectedWallet?.slice(0, 6) +
@@ -114,11 +126,13 @@ const ConnectEthereum = () => {
             connectedWallet?.length
           )}
       </div> */}
-      <span>{ethSvg()}</span>
-      <button className="" onClick={signIn}>
-        Connect Ethereum
-      </button>
-    </div>
+          <span>{ethSvg()}</span>
+          <button className="" onClick={signIn}>
+            Sign with Ethereum
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 

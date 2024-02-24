@@ -127,7 +127,7 @@ const Home = () => {
             {(state?.ethAddress && state?.ethToken) ||
             (state?.solToken && state?.solAddress) ? (
               <Link to={"/inventory"}>
-                <div className="border rounded-lg px-8 h-12 flex items-center mt-4">
+                <div className="border rounded-lg px-6 h-12 flex items-center mt-4 w-[200px]">
                   See Your Inventory
                 </div>
               </Link>

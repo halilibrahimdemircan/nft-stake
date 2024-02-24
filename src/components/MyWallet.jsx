@@ -13,7 +13,7 @@ import { useAppContext } from "../context/AppContext";
 // import { saveSolanaWallet } from "../apiCalls/sign";
 
 const MyWallet = (props) => {
-  const { state, dispatch } = useAppContext();
+  const { dispatch } = useAppContext();
   let walletAddress = "";
 
   // if you use anchor, use the anchor hook instead
@@ -159,13 +159,14 @@ const MyWallet = (props) => {
                 <WalletModalProvider>
                   <WalletMultiButton
                     style={{
-                      // position: "absolute",
-                      // pointerEvents: "none",
-                      opacity: "0.9",
-                      // bottom: "17px",
-                      // top: "0px",
-                      // border: "1px solid red",
-                      width: "170px",
+                      display: "flex",
+                      justifyContent: "start",
+                      paddingLeft: "12px",
+                      width: "200px",
+                      borderRadius: "8px",
+                      border: "1px solid #224B4A",
+                      background:
+                        "linear-gradient(111deg, rgba(0, 25, 17, 0.86) 37.85%, rgba(9, 1, 12, 0.86) 80%, rgba(63, 15, 76, 0.86) 115.8%)",
                     }}
                   />
                 </WalletModalProvider>
