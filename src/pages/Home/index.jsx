@@ -4,7 +4,11 @@ import infoIcon from "../../images/icons/infoIcon.png";
 import solana from "../../images/icons/solana.png";
 import ethActive from "../../images/icons/ethActive.png";
 import viewStake from "../../images/viewStake.png";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../../context/AppContext";
 const Home = () => {
+  const { state } = useAppContext();
+
   return (
     <div className="w-full h-full px-[140px] pt-[76px] flex flex-col gap-[48px]">
       <h2 className="text-[32px] font-normal ">
@@ -120,6 +124,16 @@ const Home = () => {
               </span>
             </span>
             <Sign type={"col"} />
+            {(state?.ethAddress && state?.ethToken) ||
+            (state?.solToken && state?.solAddress) ? (
+              <Link to={"/inventory"}>
+                <div className="border rounded-lg px-8 h-12 flex items-center mt-4">
+                  See Your Inventory
+                </div>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
