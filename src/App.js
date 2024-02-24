@@ -33,6 +33,11 @@ export const App = () => {
         state.ethToken,
         state.ethAddress
       );
+      if (!accountData?.success) {
+        localStorage.removeItem("initEthAddress"),
+          localStorage.removeItem("initEthToken"),
+          dispatch({ type: "LOGOUTETH" });
+      }
       console.log("eth accountData :>> ", accountData);
     }
   }, [state.ethAddress, state.ethToken]);
@@ -42,6 +47,11 @@ export const App = () => {
         state.solToken,
         state.solAddress
       );
+      if (!accountData.success) {
+        localStorage.removeItem("initSolAddress"),
+          localStorage.removeItem("initSolToken"),
+          dispatch({ type: "LOGOUTSOL" });
+      }
       console.log("sol accountData :>> ", accountData);
     }
   }, [state.solAddress, state.solToken]);

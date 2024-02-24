@@ -12,7 +12,7 @@ export async function ethCheckAccount(token, address, slot) {
     }).then((data) => data.json());
   }
 }
-export async function solCheckAccount(address, token) {
+export async function solCheckAccount(token, address) {
   return fetch(url + "api/check_account_sol/", {
     method: "POST",
     headers: {

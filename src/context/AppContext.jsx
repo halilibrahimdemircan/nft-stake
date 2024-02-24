@@ -20,16 +20,20 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "SETETHCREDENTIALS":
+      localStorage.setItem("activeNetwork", "ETH");
       return {
         ...state,
         ethToken: action.payload.ethToken,
         ethAddress: action.payload.ethAddress,
+        activeNetwork: "ETH",
       };
     case "SETSOLCREDENTIALS":
+      localStorage.setItem("activeNetwork", "SOL");
       return {
         ...state,
         solToken: action.payload.solToken,
         solAddress: action.payload.solAddress,
+        activeNetwork: "SOL",
       };
     case "LOGOUTETH":
       return { ...state, ethToken: "", ethAddress: "" };
