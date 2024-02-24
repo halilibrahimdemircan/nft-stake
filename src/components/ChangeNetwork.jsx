@@ -41,7 +41,13 @@ const ChangeNetwork = () => {
         className="flex  w-[128px] h-10 items-center justify-center gap-4"
       >
         <img src={solana} alt="" />
-        <span>Sol NFTs</span>
+        <span
+          className={`${
+            state?.activeNetwork === "SOL" ? "text-white" : "text-[#A7A7A7]"
+          }`}
+        >
+          Sol NFTs
+        </span>
       </div>
       <div
         style={{
@@ -59,7 +65,13 @@ const ChangeNetwork = () => {
           src={state?.activeNetwork === "SOL" ? ethPassive : ethActive}
           alt=""
         />
-        <span>ETH NFTs</span>
+        <span
+          className={`${
+            state?.activeNetwork === "ETH" ? "text-white" : "text-[#A7A7A7]"
+          }`}
+        >
+          ETH NFTs
+        </span>
       </div>
     </div>
   );

@@ -6,14 +6,17 @@ import userImage from "../images/userImage.png";
 import { trimCharsDynamic } from "../utils/utils";
 import { useAppContext } from "../context/AppContext";
 
-const UserInfo = ({ network, address }) => {
-  const { state, dispatch } = useAppContext();
+const UserInfo = () => {
+  const { state } = useAppContext();
 
   return (
     <div className="flex gap-2 items-center ">
       <div className="flex flex-col ">
         <div className="flex items-center gap-2 justify-end">
-          <img src={network === "SOL" ? solana : ethActive} alt="" />
+          <img
+            src={state?.activeNetwork === "SOL" ? solana : ethActive}
+            alt=""
+          />
           <span
             style={{ color: "rgba(163, 163, 163, 0.67)" }}
             className="text-[13px] font-normal tracking-[0.26px]"

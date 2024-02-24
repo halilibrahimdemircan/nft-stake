@@ -109,10 +109,8 @@ const MyWallet = (props) => {
           object.solAddress = data?.address;
           dispatch({ type: "SETSOLCREDENTIALS", payload: object });
           // TODO local storage a token ve address yaz
-          localStorage.setItem("initSolAddress", completeData?.address);
-          localStorage.setItem("initSolToken", completeData?.token);
-
-          return;
+          localStorage.setItem("initSolAddress", data?.address);
+          localStorage.setItem("initSolToken", data?.token);
         }
       });
       // props?.setLoading(false);

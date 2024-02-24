@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import Card from "./Card";
 import InventorySection from "./InventorySection";
 import { useAppContext } from "../../context/AppContext";
 import ChangeNetwork from "../../components/ChangeNetwork";
+import { getStakeNfts } from "../../apiCalls/getStakeNfts";
+import StakeSection from "./StakeSection";
 
 const Inventory = () => {
   const { state, dispatch } = useAppContext();
+
+  useEffect(async () => {
+    let nfts = [];
+
+    if (state?.activeNetwork === "ETH") {
+      nfts = await getStakeNfts("ETH", state?.ethToken, state?.ethAddress);
+      if (nfts?.eth?.success) {
+        dispatch({ type: "SETNFTS", payload: nfts?.eth?.mushboomers });
+      }
+    } else {
+      nfts = await getStakeNfts("SOL", state?.solToken, state?.solAddress);
+      dispatch({ type: "SETNFTS", payload: nfts?.sol?.mushboomers });
+    }
+  }, [state?.activeNetwork]);
 
   return (
     <div className="flex flex-col w-full h-full gap-8 items-center">
@@ -29,8 +45,9 @@ const Inventory = () => {
       </div>
       <div
         style={{ maxWidth: "1058px" }}
-        className="w-full h-full flex whitespace-nowrap border px-8"
+        className="w-full h-full flex flex-col whitespace-nowrap  px-8"
       >
+        <StakeSection />
         <InventorySection />
       </div>
     </div>

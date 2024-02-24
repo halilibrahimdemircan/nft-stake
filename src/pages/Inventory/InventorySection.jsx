@@ -1,15 +1,36 @@
 import React from "react";
 import Card from "./Card";
+import { useAppContext } from "../../context/AppContext";
 
-const InventorySection = () => {
-  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const StakeSection = () => {
+  const { state } = useAppContext();
+
   return (
-    <div className="flex gap-10 flex-wrap w-full h-full">
-      {list.map((item, index) => {
-        return <Card key={index} tokenId={365} status={"LISTED"} />;
-      })}
+    <div
+      className="px-8 py-6"
+      // style={{
+      //   borderRadius: "16px",
+      //   border: "1px solid #272727",
+      //   background: "#1A1A1A",
+      // }}
+    >
+      <div className="pb-4">INVENTORY</div>
+      <div className="flex gap-6 flex-wrap w-full h-full ">
+        {state?.nfts?.map((item, index) => {
+          return (
+            <Card
+              key={index}
+              tokenId={item?.token_id}
+              status={item?.listed_status?.toUpperCase()}
+              image={item?.image_url}
+              shrooms={item?.shrooms}
+              unlistedTime={item?.unlisted_time}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default InventorySection;
+export default StakeSection;

@@ -22,7 +22,7 @@ import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Inventory from "./pages/Inventory";
 import { AppProvider, useAppContext } from "./context/AppContext";
-import { ethCheckAccount } from "./apiCalls/checkAccount";
+import { ethCheckAccount, solCheckAccount } from "./apiCalls/checkAccount";
 
 export const App = () => {
   const { state, dispatch } = useAppContext();
@@ -36,9 +36,13 @@ export const App = () => {
       console.log("eth accountData :>> ", accountData);
     }
   }, [state.ethAddress, state.ethToken]);
-  useEffect(() => {
+  useEffect(async () => {
     if (state.solAddress?.length > 0 && state.solToken?.length > 0) {
-      console.log("sol-check account test");
+      const accountData = await solCheckAccount(
+        state.solToken,
+        state.solAddress
+      );
+      console.log("sol accountData :>> ", accountData);
     }
   }, [state.solAddress, state.solToken]);
 

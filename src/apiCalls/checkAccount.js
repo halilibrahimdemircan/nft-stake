@@ -10,31 +10,18 @@ export async function ethCheckAccount(token, address, slot) {
       },
       body: JSON.stringify({ token: token, address: address }),
     }).then((data) => data.json());
-  } else if (slot > 1) {
-    return fetch(url + "api/sign_start/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        token: token,
-        address: address,
-        token_slot: slot,
-      }),
-    }).then((data) => data.json());
   }
 }
 export async function solCheckAccount(address, token) {
-  return fetch(url + "api/check_account_test_sol/", {
+  return fetch(url + "api/check_account_sol/", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      address: address,
-      token: token,
+      sol_address: address,
+      sol_token: token,
     }),
   }).then((data) => data.json());
 }
