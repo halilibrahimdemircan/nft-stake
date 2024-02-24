@@ -3,13 +3,14 @@ import Header from "./Header";
 import Card from "./Card";
 import InventorySection from "./InventorySection";
 import { useAppContext } from "../../context/AppContext";
+import ChangeNetwork from "../../components/ChangeNetwork";
 
 const Inventory = () => {
   const { state, dispatch } = useAppContext();
 
   return (
-    <div className="flex flex-col w-full h-full gap-12 items-center">
-      <div className="flex flex-col w-full items-center   bg-[#1A1A1A52] pt-7">
+    <div className="flex flex-col w-full h-full gap-8 items-center">
+      <div className="flex flex-col w-full items-center   bg-[#1A1A1A52] pt-7 ">
         <Header />
         <div
           className="w-full h-[2px] mt-7"
@@ -22,6 +23,9 @@ const Inventory = () => {
             boxShadow: "0px 4px 16px 0px rgba(75, 181, 195, 0.48)",
           }}
         ></div>
+      </div>
+      <div>
+        <ChangeNetwork />
       </div>
       <div
         style={{ maxWidth: "1058px" }}
