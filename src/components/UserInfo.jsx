@@ -21,10 +21,18 @@ const UserInfo = () => {
             style={{ color: "rgba(163, 163, 163, 0.67)" }}
             className="text-[13px] font-normal tracking-[0.26px]"
           >
-            CONNECTED
+            {state?.activeNetwork === "SOL"
+              ? !state?.solToken || !state?.solAddress
+                ? "NOT CONNECTED"
+                : "CONNECTED"
+              : state?.activeNetwork === "ETH"
+              ? !state?.ethToken || !state?.ethAddress
+                ? "NOT CONNECTED"
+                : "CONNECTED"
+              : ""}
           </span>
         </div>
-        <div className="text-[24px] font-normal ">
+        <div className="text-[24px] font-normal flex justify-end">
           {trimCharsDynamic(
             state?.activeNetwork === "SOL"
               ? state?.solAddress

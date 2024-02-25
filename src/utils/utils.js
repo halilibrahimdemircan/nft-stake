@@ -1,5 +1,5 @@
 export const trimCharsDynamic = (str, numChars) => {
-  if (!str) return;
+  if (!str) return "NO USER";
   if (str?.length <= numChars * 2) {
     return str;
   }

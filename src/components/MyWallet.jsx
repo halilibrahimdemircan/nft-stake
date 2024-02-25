@@ -131,6 +131,11 @@ const MyWallet = (props) => {
   //     props?.setSolToken("");
   //   }
   // }, [wallet, props?.solToken]);
+
+  useEffect(() => {
+    connect();
+  }, []);
+
   return (
     <>
       {
