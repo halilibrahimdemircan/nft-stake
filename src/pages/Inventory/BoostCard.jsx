@@ -117,7 +117,7 @@ const BoostCard = ({
         )}
 
         <div className="bg-white text-[#111111] flex items-center justify-center w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase ">
-          BUY OR UNLIST {type === "ETH" ? "SOL" : "ETH"} MB
+          BUY OR UNLIST {type === "ETH" ? "ETH" : "SOL"} MB
         </div>
         {/* <img className="rounded-b-lg" src={image} alt="" /> */}
         <div className="bg-[#242424] w-full h-[164px]  flex flex-col justify-start items-center">
