@@ -6,6 +6,7 @@ import { useAppContext } from "../../context/AppContext";
 // import ChangeNetwork from "../../components/ChangeNetwork";
 import { getStakeNfts } from "../../apiCalls/getStakeNfts";
 import StakeSection from "./StakeSection";
+import InfoModal from "../../components/modals/InfoModal";
 
 const Inventory = () => {
   const { state, dispatch } = useAppContext();
