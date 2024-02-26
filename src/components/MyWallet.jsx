@@ -118,7 +118,7 @@ const MyWallet = (props) => {
       if (error.message == "User rejected the request.") {
         setSignature("");
         // props?.setLoading(false);
-        disconnect();
+        // disconnect();
       }
 
       // props?.setLoading(false);

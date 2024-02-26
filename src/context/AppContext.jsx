@@ -7,13 +7,13 @@ const AppContext = createContext();
 
 // İlk durum (initial state)
 const initialState = {
-  ethToken: localStorage.getItem("initEthToken") || "",
-  solToken: localStorage.getItem("initSolToken") || "",
-  ethAddress: localStorage.getItem("initEthAddress") || "",
-  solAddress: localStorage.getItem("initSolAddress") || "",
-  activeNetwork: localStorage.getItem("activeNetwork") || "",
+  ethToken: localStorage.getItem("initEthToken") || null,
+  solToken: localStorage.getItem("initSolToken") || null,
+  ethAddress: localStorage.getItem("initEthAddress") || null,
+  solAddress: localStorage.getItem("initSolAddress") || null,
+  // activeNetwork: localStorage.getItem("activeNetwork") || "",
   nfts: [],
-  totalShrooms: 0,
+  // totalShrooms: 0,
 };
 
 // Reducer fonksiyonu
@@ -39,161 +39,129 @@ const reducer = (state, action) => {
       return { ...state, ethToken: "", ethAddress: "" };
     case "LOGOUTSOL":
       return { ...state, solToken: "", solAddress: "" };
-    case "SETNETWORK":
-      localStorage.setItem("activeNetwork", action.payload);
-      return { ...state, activeNetwork: action.payload };
-    case "SETTOTALSHROOMS":
-      return { ...state, totalShrooms: action.payload };
+    // case "SETNETWORK":
+    //   localStorage.setItem("activeNetwork", action.payload);
+    //   return { ...state, activeNetwork: action.payload };
+    // case "SETTOTALSHROOMS":
+    //   return { ...state, totalShrooms: action.payload };
     case "SETNFTS":
-      return { ...state, nfts: action.payload };
-    // return {
-    //   ...state,
-    //   nfts: [
-    //     {
-    //       token_id: "3bYHW2X8m96ifHdMU4nDnY5tvHwcgJ7j5Kz9kZkPKBVr",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:16:30.650573",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "4VUpT8SjCUK3nuon6AnH9gqsf3amdBP34CgmWTHvJvrn",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:17:09.323781",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "5XAaMWeLsgB2vbaMoXuHQstmQC8pJJDEsWYMVPnu9zrK",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:15:53.008061",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "9gUzCDPSuDKEsANy3o3EbZwwmwxsWRvxKHoLey55Sszq",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:17:09.323781",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "BZVCHkKRvopkbSpPnUmoAW45mgoVFvJkc6Y2nZBTfCkC",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:17:47.524161",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "EJKVkGvCGb312eyegHH1LkkX85GgLJNWWfc43YsMMeRZ",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:16:30.650573",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "FCPoSKDwSA1ozNSWFetf2tTGEJTCi7aDzsNno16iPjuC",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:15:53.008061",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "FvY3jQAFbmWNi2xVvGiTFz6wrQ3YrpCoNQ7nd8wRN5YG",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:15:53.008061",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "GbfvJQuGZ6u7KsmaLNSCYVfhsJKjXkVpA8yTEZEPAars",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:14:56.604069",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "HRoAKZZpFemUfHyK3J9yEUcY7b7tFNjmDA1dRhXvuM6D",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:18:24.745343",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //     {
-    //       token_id: "uHKm5s5wnZ7gRqXxf38rtDWGPkaPXtsTbx3CHQSHHTj",
-    //       name: "Secret Mushboomer",
-    //       owner_address: "2E9bWVtemPovJMFAdTNqSKNtJ2jjBVA3yntByRxhjqg3",
-    //       listed_time: "None",
-    //       unlisted_time: "2 days, 0:16:29.216250",
-    //       listed_status: "unlisted",
-    //       hold_time: "5 days, 21:17:09.323781",
-    //       image_url:
-    //         "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
-    //       shrooms: 0,
-    //       stake: true,
-    //     },
-    //   ],
-    // };
+      // return { ...state, nfts: action.payload };
+      return {
+        ...state,
+        nfts: {
+          staked: [
+            {
+              eth: {
+                token_id: "812",
+                name: "Mushboomers #812",
+                owner_address: "0xc66c8d71922825d97ed19e50287952d6b2d31879",
+                listed_time: "11:37:50.305280",
+                unlisted_time: null,
+                listed_status: "unlisted",
+                hold_time: "11:42:51.679598",
+                image_url:
+                  "https://ipfs.io/ipfs/QmZxfsoVaZjzwYiokaD7sPHiM5cWrz1BrrrPX4NDJCy6ZX",
+                shrooms: 0,
+                stake: true,
+              },
+              sol: {
+                token_id: "Aj56S2fTzVCCSS3Eo6Gcec6Ct3g66bKAnUnJL2kb6914",
+                name: "Secret Mushboomer",
+                owner_address: "DrPym5UGD9fzdN16sdmWS97dTGDJHkaioReqMycCwxUF",
+                listed_time: "None",
+                unlisted_time: "11:52:14.399327",
+                listed_status: "unlisted",
+                hold_time: "11:52:14.399327",
+                image_url:
+                  "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
+                shrooms: 0,
+                stake: true,
+              },
+            },
+            {
+              eth: {
+                token_id: "952",
+                name: "Mushboomers #952",
+                owner_address: "0xc66c8d71922825d97ed19e50287952d6b2d31879",
+                listed_time: "11:37:45.217622",
+                unlisted_time: null,
+                listed_status: "unlisted",
+                hold_time: "11:38:44.035618",
+                image_url:
+                  "https://ipfs.io/ipfs/QmQ29jd2wQBJEK74j7xJsqERe6hAizFbB8d49S3H1GQNyt",
+                shrooms: 0,
+                stake: true,
+              },
+              sol: {
+                token_id: "Bsjb9DjYvz1WjbjVDXBnRtsE5Pbj7auCbV8kpmYHfGgk",
+                name: "Secret Mushboomer",
+                owner_address: "DrPym5UGD9fzdN16sdmWS97dTGDJHkaioReqMycCwxUF",
+                listed_time: "None",
+                unlisted_time: "11:52:14.399327",
+                listed_status: "unlisted",
+                hold_time: "11:52:14.399327",
+                image_url:
+                  "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
+                shrooms: 0,
+                stake: true,
+              },
+            },
+            {
+              eth: "",
+              sol: {
+                token_id: "J6wcsC1V9oUES2fMRkhfN38RP6JefmHkJAM2sq8R8x7p",
+                name: "Secret Mushboomer",
+                owner_address: "DrPym5UGD9fzdN16sdmWS97dTGDJHkaioReqMycCwxUF",
+                listed_time: "None",
+                unlisted_time: "11:52:14.399327",
+                listed_status: "unlisted",
+                hold_time: "11:52:14.399327",
+                image_url:
+                  "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
+                shrooms: 0,
+                stake: true,
+              },
+            },
+            {
+              eth: {
+                token_id: "J6wcsC1V9oUES2fMRkhfN38RP6JefmHkJAM2sq8R8x7p",
+                name: "Secret Mushboomer",
+                owner_address: "DrPym5UGD9fzdN16sdmWS97dTGDJHkaioReqMycCwxUF",
+                listed_time: "None",
+                unlisted_time: "11:52:14.399327",
+                listed_status: "unlisted",
+                hold_time: "11:52:14.399327",
+                image_url:
+                  "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
+                shrooms: 0,
+                stake: true,
+              },
+              sol: "",
+            },
+          ],
+          unstaked: [
+            {
+              eth: "",
+              sol: {
+                token_id: "AuuBsLZ2d197m9B8qycHQGrS2U6x7tt6bijLCN8H3nbW",
+                name: "Secret Mushboomer",
+                owner_address: "DrPym5UGD9fzdN16sdmWS97dTGDJHkaioReqMycCwxUF",
+                listed_time: "11:30:26.158209",
+                unlisted_time: "None",
+                listed_status: "listed",
+                hold_time: "11:52:14.399327",
+                image_url:
+                  "https://bafybeih53xtdm4g4uw4ivlofogyjsof3aoyuntwot5jrf5knf2s7xo4zcm.ipfs.nftstorage.link",
+                shrooms: 0,
+                stake: false,
+              },
+            },
+          ],
+          eth_shrooms: 0,
+          sol_shrooms: 0,
+          total_shrooms: 0,
+        },
+      };
 
     default:
       return state;

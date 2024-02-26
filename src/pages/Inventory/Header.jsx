@@ -20,17 +20,27 @@ const Header = () => {
         // style={{ width: "1058px", maxWidth: "1058px" }}
         className="flex gap-12   "
       >
-        <HeaderPiece text={"OWNED"} quantity={state?.nfts?.length} />
+        <HeaderPiece
+          text={"OWNED"}
+          quantity={
+            state?.nfts?.eth?.mushboomers?.length ||
+            0 + state?.nfts?.sol?.mushboomers?.length ||
+            0
+          }
+        />
         <div className="border border-[#252525]"></div>
         <HeaderPiece
           text={"STAKED"}
-          quantity={state?.nfts?.filter((nft) => nft.stake)?.length}
+          // TODO
+          quantity={
+            state?.nfts?.eth?.mushboomers?.filter((nft) => nft.stake)?.length
+          }
         />
         <div className="border border-[#252525]"></div>
 
         <HeaderPiece
           text={"EARNED SHROOMS"}
-          quantity={state?.totalShrooms}
+          quantity={state?.nfts?.total_shrooms}
           bg={true}
         />
       </div>

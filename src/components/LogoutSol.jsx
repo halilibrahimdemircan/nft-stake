@@ -14,7 +14,7 @@ const LogoutSol = () => {
       className="border whitespace-nowrap px-4 h-12 rounded-lg flex items-center justify-start w-[200px] cursor-pointer"
       onClick={() => logoutSol()}
     >
-      Logout Sol
+      Logout
     </div>
   );
 };

@@ -3,19 +3,31 @@ import sampleMush from "../../images/sampleMush.png";
 import solanaWhite from "../../images/icons/solanaWhite.png";
 import ethActive from "../../images/icons/ethActive.png";
 
-const Card = ({
-  tokenId,
-  status,
-  image,
-  shrooms,
-  unlistedTime,
+const BoostCard = ({
+  // tokenId,
+  // status,
+  // image,
+  // shrooms,
+  // unlistedTime,
   type,
   eth,
   sol,
 }) => {
   return (
-    <div style={{ width: "164px" }} className="flex flex-col gap-[6px] ">
-      <div className="relative">
+    <div
+      onClick={() => {
+        if (window) {
+          if (type === "ETH") {
+            window.open("https://blur.io/collection/mushboomers", "_blank");
+          } else if (type === "SOL") {
+            window.open("https://www.tensor.trade/trade/mushboomers", "_blank");
+          }
+        }
+      }}
+      style={{ width: "164px" }}
+      className="flex flex-col gap-[6px] cursor-pointer"
+    >
+      <div className="relative ">
         {type === "ETH" ? (
           <>
             <div
@@ -72,7 +84,7 @@ const Card = ({
               }}
               className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center"
             >
-              {sol ? "BOOSTED" : "NOT BOOSTED"}
+              {"TO BOOST"}
             </div>
           </>
         ) : type === "SOL" ? (
@@ -97,55 +109,45 @@ const Card = ({
               }}
               className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center"
             >
-              {eth ? "BOOSTED" : "NOT BOOSTED"}
+              {"TO BOOST"}
             </div>
           </>
         ) : (
           ""
         )}
 
-        <div className="bg-white text-[#111111] flex items-center justify-center w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase">
-          {unlistedTime?.split(",")[0] || ""}
+        <div className="bg-white text-[#111111] flex items-center justify-center w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase ">
+          BUY OR UNLIST {type === "ETH" ? "SOL" : "ETH"} MB
         </div>
-        <img className="rounded-b-lg" src={image} alt="" />
+        {/* <img className="rounded-b-lg" src={image} alt="" /> */}
+        <div className="bg-[#242424] w-full h-[164px]  flex flex-col justify-start items-center">
+          <span className=" font-semibold text-[40px] w-full flex justify-center   pt-4">
+            +
+          </span>
+          <span className="text-[10px] font-medium text-[#5E5E5E]">
+            DONT LEAVE ME ALONE
+          </span>
+        </div>
       </div>
-      <div className="text-[32px]">
+      <div className="invisible text-[32px]">
         <span>#</span>
         <span>
-          {tokenId?.length > 5 ? tokenId?.slice(0, 5) + ".." : tokenId}
+          {/* {tokenId?.length > 5 ? tokenId?.slice(0, 5) + ".." : tokenId} */}
         </span>
       </div>
-      <div className="flex w-full justify-between items-center">
+      <div className="invisible flex w-full justify-between items-center">
         <span className="text-[13px] text-[#7E7E7E]">SHROOMS</span>
-        <span>{shrooms}</span>
+        <span>{/* {shrooms} */}</span>
       </div>
 
       <div
-        className={`${
-          status === "UNLISTED" ? "bg-[#BDFF00]" : "bg-white"
-        } flex items-center w-full justify-between  text-black px-3 py-1 rounded-l-sm`}
+        className={` invisible  flex items-center w-full justify-between  text-black px-3 py-1 rounded-l-sm`}
       >
         <span className="text-[#111] font-medium text-[13px] leading-[14px]">
-          {status}
+          {/* {status} */}
         </span>
         <span className="w-4 h-4 flex items-center justify-center rounded-full">
-          {status === "UNLISTED" ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="17"
-              viewBox="0 0 16 17"
-              fill="none"
-            >
-              <path
-                d="M5.33337 8.49992L7.02316 10.0207C7.31083 10.2796 7.75777 10.24 7.99537 9.93449L10.6667 6.49992M8.00004 15.1666C11.6819 15.1666 14.6667 12.1818 14.6667 8.49992C14.6667 4.81802 11.6819 1.83325 8.00004 1.83325C4.31814 1.83325 1.33337 4.81802 1.33337 8.49992C1.33337 12.1818 4.31814 15.1666 8.00004 15.1666Z"
-                stroke="#111111"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          ) : (
+          {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17"
@@ -168,11 +170,11 @@ const Card = ({
                 stroke-linejoin="round"
               />
             </svg>
-          )}
+          }
         </span>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default BoostCard;

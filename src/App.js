@@ -19,7 +19,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
-import Inventory from "./pages/Inventory";
 import { useAppContext } from "./context/AppContext";
 import { ethCheckAccount, solCheckAccount } from "./apiCalls/checkAccount";
 
@@ -88,7 +87,7 @@ const Context = ({ children }) => {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="/inventory" element={<Inventory />} />
+                {/* <Route path="/inventory" element={<Inventory />} /> */}
 
                 <Route path="*" element={<NoPage />} />
               </Route>

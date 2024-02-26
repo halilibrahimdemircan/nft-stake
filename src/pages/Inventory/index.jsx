@@ -3,7 +3,7 @@ import Header from "./Header";
 import Card from "./Card";
 import InventorySection from "./InventorySection";
 import { useAppContext } from "../../context/AppContext";
-import ChangeNetwork from "../../components/ChangeNetwork";
+// import ChangeNetwork from "../../components/ChangeNetwork";
 import { getStakeNfts } from "../../apiCalls/getStakeNfts";
 import StakeSection from "./StakeSection";
 
@@ -11,23 +11,24 @@ const Inventory = () => {
   const { state, dispatch } = useAppContext();
 
   useEffect(async () => {
+    if (state?.ethToken && state?.solToken) {
+      // TODO linkleme endpointini çalıştır
+    }
+
     let nfts = [];
 
-    if (state?.activeNetwork === "ETH") {
-      nfts = await getStakeNfts("ETH", state?.ethToken, state?.ethAddress);
-      if (nfts?.eth?.success) {
-        dispatch({ type: "SETNFTS", payload: nfts?.eth?.mushboomers });
-        dispatch({
-          type: "SETTOTALSHROOMS",
-          payload: nfts?.eth?.total_shrooms,
-        });
-      }
-    } else {
-      nfts = await getStakeNfts("SOL", state?.solToken, state?.solAddress);
-      dispatch({ type: "SETNFTS", payload: nfts?.sol?.mushboomers });
-      dispatch({ type: "SETTOTALSHROOMS", payload: nfts?.sol?.total_shrooms });
-    }
-  }, [state?.activeNetwork]);
+    nfts = await getStakeNfts(
+      state?.ethToken,
+      state?.ethAddress,
+      state?.solToken,
+      state?.solAddress
+    );
+    dispatch({ type: "SETNFTS", payload: nfts });
+    // dispatch({
+    //   type: "SETTOTALSHROOMS",
+    //   payload: nfts?.eth?.total_shrooms,
+    // });
+  }, [state?.ethToken, state?.solToken]);
 
   return (
     <div className="flex flex-col w-full h-full gap-8 items-center">
@@ -45,9 +46,9 @@ const Inventory = () => {
           }}
         ></div>
       </div>
-      <div>
+      {/* <div>
         <ChangeNetwork />
-      </div>
+      </div> */}
       <div
         style={{ maxWidth: "1058px" }}
         className="w-full h-full flex flex-col whitespace-nowrap  px-8"
