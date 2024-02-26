@@ -66,7 +66,7 @@ const HeaderPiece = ({ text, quantity, bg }) => {
         )}
       </div>
       {showInfo ? (
-        <div className="absolute top-12 flex w-[200px] h-12 bg-black text-white rounded-md p-1 text-[10px] justify-center items-center border font-light tracking-wide">
+        <div className="absolute top-14 flex w-[200px] h-12 bg-black text-white rounded-md p-1 text-[10px] justify-center items-center border font-light tracking-wide">
           MUSHBOOMERS EARN SHROOMS EVERYDAY IF THEY ARE UNLISTED
         </div>
       ) : (
