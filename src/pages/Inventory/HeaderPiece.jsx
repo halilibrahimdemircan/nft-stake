@@ -37,7 +37,7 @@ const HeaderPiece = ({ text, quantity, bg }) => {
             lineHeight: "normal",
           }}
         >
-          {quantity}
+          {quantity || "-"}
         </div>
         {text === "EARNED SHROOMS" && (
           <div
