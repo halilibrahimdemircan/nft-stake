@@ -32,7 +32,7 @@ const UserInfo = ({ token, address, type }) => {
       <div className="">
         <img src={userImage} alt="" />
       </div>
-      <div className="absolute top-[55px] right-0 bg-[#333333]">
+      <div className="absolute top-[45px] right-0 bg-[#333333]">
         {showLogout && type === "ETH" ? (
           <LogoutEth />
         ) : showLogout && type === "SOL" ? (
