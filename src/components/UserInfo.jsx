@@ -13,7 +13,7 @@ const UserInfo = ({ token, address, type }) => {
     <div
       onMouseEnter={() => setShowLogout(true)}
       onMouseLeave={() => setShowLogout(false)}
-      className="flex gap-2 items-center  w-full relative"
+      className="flex gap-2 items-center  w-full relative "
     >
       <div className="flex flex-col ">
         <div className="flex items-center gap-2 justify-end">
@@ -25,7 +25,7 @@ const UserInfo = ({ token, address, type }) => {
             {!token || !address ? "NOT CONNECTED" : "CONNECTED"}
           </span>
         </div>
-        <div className="text-[24px] font-normal flex justify-end">
+        <div className="text-[18px] font-normal flex justify-end">
           {trimCharsDynamic(address, 5)}
         </div>
       </div>

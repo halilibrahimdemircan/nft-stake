@@ -10,10 +10,10 @@ const TwinCard = ({ twinInfo }) => {
           twinInfo?.eth && twinInfo?.sol
             ? "2px solid #36E9E5"
             : "2px solid #7C7C7C",
-        background:
-          twinInfo?.eth && twinInfo?.sol
-            ? "linear-gradient(142deg, rgba(54, 233, 229, 0.08) -3.32%, rgba(222, 67, 210, 0.08) 103.39%)"
-            : "",
+        // background:
+        //   twinInfo?.eth && twinInfo?.sol
+        //     ? "linear-gradient(142deg, rgba(54, 233, 229, 0.08) -3.32%, rgba(222, 67, 210, 0.08) 103.39%)"
+        //     : "",
       }}
       className={`flex gap-2  rounded-lg p-1`}
     >

@@ -16,7 +16,7 @@ const StakeSection = () => {
         minHeight: "300px",
       }}
     >
-      <div className="absolute top-0 left-[230px]  w-[512px] h-1 bg-[#BDFF00]"></div>
+      <div className="absolute top-0 left-[336px]  w-[512px] h-1 bg-[#BDFF00]"></div>
       <div className="pb-4">STAKED NFTS</div>
       <div className="flex gap-6 flex-wrap w-full h-full ">
         {state?.nfts?.staked?.length > 0 ? (
