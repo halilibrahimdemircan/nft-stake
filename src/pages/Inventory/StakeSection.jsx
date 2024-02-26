@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { useAppContext } from "../../context/AppContext";
 import TwinCard from "./TwinCard";
+import NonStakedSection from "./NonStakedSection";
 
 const StakeSection = () => {
   const { state } = useAppContext();
@@ -24,9 +25,7 @@ const StakeSection = () => {
             return <TwinCard key={index} twinInfo={item} />;
           })
         ) : (
-          <div className=" text-[#] flex justify-center items-center">
-            NO NFTS STAKED
-          </div>
+          <NonStakedSection />
         )}
       </div>
     </div>
