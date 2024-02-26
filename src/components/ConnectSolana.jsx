@@ -3,6 +3,7 @@ import solanaIcon from "../images/icons/solana.png";
 import solanaWhite from "../images/icons/solanaWhite.png";
 import { useAppContext } from "../context/AppContext";
 import LogoutSol from "./LogoutSol";
+import UserInfo from "./UserInfo";
 
 const ConnectSolana = ({ connected }) => {
   const { state } = useAppContext();
@@ -12,7 +13,13 @@ const ConnectSolana = ({ connected }) => {
   return (
     <>
       {state?.solToken && state?.solAddress ? (
-        <LogoutSol />
+        // <LogoutSol />
+        <UserInfo
+          address={state?.solAddress}
+          token={state?.solToken}
+          type={"SOL"}
+          key={1}
+        />
       ) : (
         <button
           onMouseOver={() => setOver(true)}

@@ -2,16 +2,24 @@ import React from "react";
 import HeaderPiece from "./HeaderPiece";
 import UserInfo from "../../components/UserInfo";
 import { useAppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
+import mbLogo from "../../images/mbLogo.png";
+import Sign from "../../components/Sign";
 
 const Header = () => {
   const { state } = useAppContext();
 
   return (
-    <div
-      style={{ width: "1058px", maxWidth: "1058px" }}
-      className=" flex justify-between items-center font-rubik"
-    >
-      <div className="flex gap-12 ">
+    <div className="w-full flex justify-between items-center font-rubik px-[60px]">
+      <div>
+        <Link to={"/"}>
+          <img src={mbLogo} alt="" />
+        </Link>
+      </div>
+      <div
+        // style={{ width: "1058px", maxWidth: "1058px" }}
+        className="flex gap-12   "
+      >
         <HeaderPiece text={"OWNED"} quantity={state?.nfts?.length} />
         <div className="border border-[#252525]"></div>
         <HeaderPiece
@@ -26,8 +34,9 @@ const Header = () => {
           bg={true}
         />
       </div>
-      <div>
-        <UserInfo />
+      <div className="">
+        {/* <UserInfo /> */}
+        <Sign />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { signAddressComplete, signAddressStart } from "../apiCalls/sign";
 import { useAppContext } from "../context/AppContext";
 import LogoutEth from "./LogoutEth";
+import UserInfo from "./UserInfo";
 
 const ConnectEthereum = () => {
   const [ethAddress, setEthAddress] = useState("");
@@ -106,7 +107,13 @@ const ConnectEthereum = () => {
   return (
     <>
       {state?.ethToken && state?.ethAddress ? (
-        <LogoutEth />
+        // <LogoutEth />
+        <UserInfo
+          address={state?.ethAddress}
+          token={state?.ethToken}
+          type={"ETH"}
+          key={2}
+        />
       ) : (
         <div
           style={{

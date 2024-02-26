@@ -4,44 +4,25 @@ import ethActive from "../images/icons/ethActive.png";
 import userImage from "../images/userImage.png";
 
 import { trimCharsDynamic } from "../utils/utils";
-import { useAppContext } from "../context/AppContext";
 
-const UserInfo = () => {
-  const { state } = useAppContext();
-
+const UserInfo = ({ token, address, type }) => {
   return (
-    <div className="flex gap-2 items-center ">
+    <div className="flex gap-2 items-center  w-full">
       <div className="flex flex-col ">
         <div className="flex items-center gap-2 justify-end">
-          <img
-            src={state?.activeNetwork === "SOL" ? solana : ethActive}
-            alt=""
-          />
+          <img src={type === "SOL" ? solana : ethActive} alt="" />
           <span
             style={{ color: "rgba(163, 163, 163, 0.67)" }}
             className="text-[13px] font-normal tracking-[0.26px]"
           >
-            {state?.activeNetwork === "SOL"
-              ? !state?.solToken || !state?.solAddress
-                ? "NOT CONNECTED"
-                : "CONNECTED"
-              : state?.activeNetwork === "ETH"
-              ? !state?.ethToken || !state?.ethAddress
-                ? "NOT CONNECTED"
-                : "CONNECTED"
-              : ""}
+            {!token || !address ? "NOT CONNECTED" : "CONNECTED"}
           </span>
         </div>
         <div className="text-[24px] font-normal flex justify-end">
-          {trimCharsDynamic(
-            state?.activeNetwork === "SOL"
-              ? state?.solAddress
-              : state?.ethAddress,
-            5
-          )}
+          {trimCharsDynamic(address, 5)}
         </div>
       </div>
-      <div>
+      <div className="">
         <img src={userImage} alt="" />
       </div>
     </div>

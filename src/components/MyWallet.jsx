@@ -124,13 +124,6 @@ const MyWallet = (props) => {
       // props?.setLoading(false);
     }
   }
-  // useEffect(() => {
-  //   if (wallet.connected && !(sign?.length > 0)) {
-  //     createSolanaMessage();
-  //   } else {
-  //     props?.setSolToken("");
-  //   }
-  // }, [wallet, props?.solToken]);
 
   useEffect(() => {
     connect();
