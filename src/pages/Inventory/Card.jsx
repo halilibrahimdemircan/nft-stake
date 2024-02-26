@@ -14,8 +14,8 @@ const Card = ({
   sol,
 }) => {
   return (
-    <div style={{ width: "164px" }} className="flex flex-col gap-[6px] ">
-      <div className="relative">
+    <div style={{ width: "164px" }} className="flex flex-col gap-[12px] ">
+      <div className="relative border rounded-lg">
         {type === "ETH" ? (
           <>
             <div
@@ -67,10 +67,14 @@ const Card = ({
             </div>
             <div
               style={{
-                background: "#7C7C7C",
+                background: sol
+                  ? "linear-gradient(92deg, #A81AFF -0.77%, #FC1C6D 100.54%)"
+                  : "#364D51",
                 boxShadow: "0px 4px 32px 0px #000",
               }}
-              className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center"
+              className={`${
+                sol ? "border-t" : ""
+              } h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center`}
             >
               {sol ? "BOOSTED" : "NOT BOOSTED"}
             </div>
@@ -91,11 +95,13 @@ const Card = ({
             <div
               style={{
                 background: eth
-                  ? "linear-gradient(90deg, #35ECE1 -0.02%, #35E1EC 44.72%, #EC35CF 99.58%)"
-                  : "linear-gradient(90deg, #19716C -0.02%, #176F75 44.72%, #7F136E 99.58%)",
+                  ? "linear-gradient(92deg, #A81AFF -0.77%, #FC1C6D 100.54%)"
+                  : "#364D51",
                 boxShadow: "0px 4px 32px 0px #000",
               }}
-              className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center"
+              className={`${
+                eth ? "border-t" : ""
+              } h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center`}
             >
               {eth ? "BOOSTED" : "NOT BOOSTED"}
             </div>
@@ -103,27 +109,41 @@ const Card = ({
         ) : (
           ""
         )}
+        <div
+          onClick={() => {
+            if (window) {
+              window.open("", "_blank");
+            }
+          }}
+          className="cursor-pointer text-[16px] absolute top-8 left-2 bg-white text-black font-normal py-0.5 px-1 rounded-[4px]"
+        >
+          <span>#</span>
+          <span>
+            {tokenId?.length > 5 ? tokenId?.slice(0, 5) + ".." : tokenId}
+          </span>
+        </div>
 
-        <div className="bg-white text-[#111111] flex items-center justify-center w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase">
-          {unlistedTime?.split(",")[0] || ""}
+        <div className="bg-white text-[#111] flex items-center justify-between w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase px-2">
+          <span className="text-[13px] text-[#7E7E7E]">SHROOMS</span>
+          <span>{shrooms}</span>
         </div>
         <img className="rounded-b-lg" src={image} alt="" />
       </div>
-      <div className="text-[32px]">
+      {/* <div className="text-[16px]">
         <span>#</span>
         <span>
           {tokenId?.length > 5 ? tokenId?.slice(0, 5) + ".." : tokenId}
         </span>
-      </div>
-      <div className="flex w-full justify-between items-center">
+      </div> */}
+      {/* <div className="flex w-full justify-between items-center">
         <span className="text-[13px] text-[#7E7E7E]">SHROOMS</span>
         <span>{shrooms}</span>
-      </div>
+      </div> */}
 
       <div
         className={`${
           status === "UNLISTED" ? "bg-[#BDFF00]" : "bg-white"
-        } flex items-center w-full justify-between  text-black px-3 py-1 rounded-l-sm`}
+        } flex items-center w-full justify-between  text-black px-3 py-1 rounded-md h-[27px]`}
       >
         <span className="text-[#111] font-medium text-[13px] leading-[14px]">
           {status}

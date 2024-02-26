@@ -50,7 +50,7 @@ const Inventory = () => {
         <ChangeNetwork />
       </div> */}
       <div
-        style={{ maxWidth: "1224px" }}
+        style={{ maxWidth: "1272px" }}
         className="w-full h-full flex flex-col whitespace-nowrap  px-8"
       >
         <StakeSection />

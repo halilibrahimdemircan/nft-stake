@@ -25,9 +25,9 @@ const BoostCard = ({
         }
       }}
       style={{ width: "164px" }}
-      className="flex flex-col gap-[6px] cursor-pointer"
+      className="flex flex-col gap-[6px] cursor-pointer "
     >
-      <div className="relative ">
+      <div className="relative border rounded-lg border-[#628186]">
         {type === "ETH" ? (
           <>
             <div
@@ -79,12 +79,12 @@ const BoostCard = ({
             </div>
             <div
               style={{
-                background: "#7C7C7C",
+                background: "#364D51",
                 boxShadow: "0px 4px 32px 0px #000",
               }}
               className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center"
             >
-              {"TO BOOST"}
+              {"1.5X TO BOOST"}
             </div>
           </>
         ) : type === "SOL" ? (
@@ -102,76 +102,79 @@ const BoostCard = ({
             </div>
             <div
               style={{
-                background: eth
-                  ? "linear-gradient(90deg, #35ECE1 -0.02%, #35E1EC 44.72%, #EC35CF 99.58%)"
-                  : "linear-gradient(90deg, #19716C -0.02%, #176F75 44.72%, #7F136E 99.58%)",
+                background: "#364D51",
                 boxShadow: "0px 4px 32px 0px #000",
               }}
-              className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center"
+              className="h-6 w-full  absolute  bottom-0 rounded-b-lg text-[13px] font-semibold flex items-center justify-center "
             >
-              {"TO BOOST"}
+              {"1.5X TO BOOST"}
             </div>
           </>
         ) : (
           ""
         )}
 
-        <div className="bg-white text-[#111111] flex items-center justify-center w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase ">
-          BUY OR UNLIST {type === "ETH" ? "ETH" : "SOL"} MB
+        <div className="bg-[#364D51] text-white flex items-center justify-center w-full h-6 rounded-t-lg text-[13px] font-semibold uppercase ">
+          BUY
+          {/* OR UNLIST {type === "ETH" ? "ETH" : "SOL"} MB */}
         </div>
         {/* <img className="rounded-b-lg" src={image} alt="" /> */}
-        <div className="bg-[#242424] w-full h-[164px]  flex flex-col justify-start items-center">
-          <span className=" font-semibold text-[40px] w-full flex justify-center   pt-4">
-            +
-          </span>
-          <span className="text-[10px] font-medium text-[#5E5E5E]">
-            DONT LEAVE ME ALONE
+        <div className="bg-[#1A2C2F]  w-full h-[164px]  flex flex-col justify-start items-center rounded-b-lg">
+          <span className=" font-semibold  w-full flex justify-center   pt-10 ">
+            <span className="w-[45px] h-[45px] border flex justify-center items-center bg-[#51757B]  border-[#83AEB5] rounded-[4px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="26"
+                viewBox="0 0 22 26"
+                fill="none"
+              >
+                <g filter="url(#filter0_d_275_352)">
+                  <path
+                    d="M9.16 21.36C8.86667 21.36 8.62667 21.2667 8.44 21.08C8.25333 20.8933 8.16 20.6533 8.16 20.36V13.04H1.04C0.746667 13.04 0.493333 12.9467 0.28 12.76C0.0933333 12.5733 0 12.3333 0 12.04V9.12C0 8.82667 0.0933333 8.58667 0.28 8.4C0.493333 8.21333 0.746667 8.12 1.04 8.12H8.16V0.999999C8.16 0.706666 8.25333 0.466667 8.44 0.280001C8.62667 0.0933337 8.86667 0 9.16 0H12.44C12.7067 0 12.9333 0.0933337 13.12 0.280001C13.3333 0.466667 13.44 0.706666 13.44 0.999999V8.12H20.52C20.8133 8.12 21.0533 8.21333 21.24 8.4C21.4267 8.58667 21.52 8.82667 21.52 9.12V12.04C21.52 12.3333 21.4267 12.5733 21.24 12.76C21.0533 12.9467 20.8133 13.04 20.52 13.04H13.44V20.36C13.44 20.6533 13.3333 20.8933 13.12 21.08C12.9333 21.2667 12.7067 21.36 12.44 21.36H9.16Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_275_352"
+                    x="0"
+                    y="0"
+                    width="21.5195"
+                    height="25.3601"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0.205662 0 0 0 0 0.313741 0 0 0 0 0.331755 0 0 0 1 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_275_352"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_275_352"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+            </span>
           </span>
         </div>
-      </div>
-      <div className="invisible text-[32px]">
-        <span>#</span>
-        <span>
-          {/* {tokenId?.length > 5 ? tokenId?.slice(0, 5) + ".." : tokenId} */}
-        </span>
-      </div>
-      <div className="invisible flex w-full justify-between items-center">
-        <span className="text-[13px] text-[#7E7E7E]">SHROOMS</span>
-        <span>{/* {shrooms} */}</span>
-      </div>
-
-      <div
-        className={` invisible  flex items-center w-full justify-between  text-black px-3 py-1 rounded-l-sm`}
-      >
-        <span className="text-[#111] font-medium text-[13px] leading-[14px]">
-          {/* {status} */}
-        </span>
-        <span className="w-4 h-4 flex items-center justify-center rounded-full">
-          {
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17"
-              height="17"
-              viewBox="0 0 17 17"
-              fill="none"
-            >
-              <path
-                d="M15.0417 8.51563C15.0417 12.1975 12.0569 15.1823 8.37504 15.1823C4.69314 15.1823 1.70837 12.1975 1.70837 8.51563C1.70837 4.83373 4.69314 1.84896 8.37504 1.84896C12.0569 1.84896 15.0417 4.83373 15.0417 8.51563Z"
-                stroke="#111111"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10.9283 11.0689L5.89277 6.0334M5.89277 11.0689L10.9283 6.0334"
-                stroke="#111111"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          }
-        </span>
       </div>
     </div>
   );
