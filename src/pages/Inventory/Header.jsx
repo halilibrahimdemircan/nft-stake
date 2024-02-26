@@ -23,18 +23,15 @@ const Header = () => {
         <HeaderPiece
           text={"OWNED"}
           quantity={
-            state?.nfts?.eth?.mushboomers?.length ||
-            0 + state?.nfts?.sol?.mushboomers?.length ||
-            0
+            (state?.nfts?.staked?.length || 0) +
+            (state?.nfts?.unstaked?.length || 0)
           }
         />
         <div className="border border-[#252525]"></div>
         <HeaderPiece
           text={"STAKED"}
           // TODO
-          quantity={
-            state?.nfts?.eth?.mushboomers?.filter((nft) => nft.stake)?.length
-          }
+          quantity={state?.nfts?.staked?.length}
         />
         <div className="border border-[#252525]"></div>
 
