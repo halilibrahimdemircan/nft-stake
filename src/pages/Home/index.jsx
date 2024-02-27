@@ -6,6 +6,7 @@ import solana from "../../images/icons/solana.png";
 import ethActive from "../../images/icons/ethActive.png";
 import mbLogo from "../../images/mbLogo.png";
 import stakingImage from "../../images/stakingImage.svg";
+import shroomBg from "../../images/shroomBg.svg";
 import viewStake from "../../images/viewStake.png";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
@@ -52,7 +53,7 @@ const Home = () => {
                 Earn Shrooms
               </span>
             </h2>
-            <div className="flex justify-between w-full   gap-[112px]">
+            <div className="flex justify-between w-full   gap-[90px]">
               <div className="flex gap-[40px] w-full">
                 <div className="flex flex-col gap-[40px]">
                   <div className="flex flex-col gap-4">
@@ -117,8 +118,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-[39px]">
-                  <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-[39px] ">
+                  <div className="flex flex-col gap-4 ">
                     <div className=" rounded-lg  h-[128px] w-[256px] flex items-center justify-center">
                       <img src={viewStake} alt="" />
                     </div>
@@ -126,7 +127,7 @@ const Home = () => {
                       <h3 className="pb-2 text-[24px] font-medium text-white">
                         Staking
                       </h3>
-                      <span className="pb-4 text-[14px] font-light leading-[18px]">
+                      <span className="pb-4 text-[14px] font-light leading-[18px] text-nowrap">
                         Unlisted Mushboomers are passively staked <br /> and
                         generate Shrooms everyday. If you have <br /> both
                         <a
@@ -179,7 +180,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="h-max-content w-[1px] bg-[#4C4C4C]"></div>
-              <div className="w-full flex items-start justify-center mt-6">
+              <div className="w-full flex items-start justify-start  z-10">
                 <div className="flex flex-col items-start gap-2">
                   <div className=" w-full flex flex-col  items-center justify-center">
                     <img src={mbLogo} alt="" />
@@ -210,6 +211,18 @@ const Home = () => {
               width: "100%",
             }}
           ></div>
+          <div
+            className=" absolute bottom-0 right-0 z-0"
+            // style={{
+            //   background:
+            //     "linear-gradient(90deg, #FB1FFF -4.88%, #FF1F47 117.66%)",
+            //   filter: "blur(128px)",
+            //   height: "84px",
+            //   width: "100%",
+            // }}
+          >
+            <img src={shroomBg} alt="" />
+          </div>
         </div>
       )}
     </>
