@@ -16,7 +16,7 @@ const Inventory = () => {
       // TODO linkleme endpointini çalıştır
     }
 
-    let nfts = [];
+    let nfts;
 
     nfts = await getStakeNfts(
       state?.ethToken,
@@ -24,11 +24,8 @@ const Inventory = () => {
       state?.solToken,
       state?.solAddress
     );
+
     dispatch({ type: "SETNFTS", payload: nfts });
-    // dispatch({
-    //   type: "SETTOTALSHROOMS",
-    //   payload: nfts?.eth?.total_shrooms,
-    // });
   }, [state?.ethToken, state?.solToken]);
 
   return (

@@ -13,7 +13,7 @@ export async function getStakeNfts(ethToken, ethAddress, solToken, solAddress) {
     body: JSON.stringify({
       eth_token: ethToken,
       eth_address: ethAddress,
-      eth_token_slot: "",
+      eth_token_slot: ethToken && ethAddress ? "" : null,
       sol_token: solToken,
       sol_address: solAddress,
     }),
