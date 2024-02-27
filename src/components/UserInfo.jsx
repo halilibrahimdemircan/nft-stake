@@ -13,7 +13,7 @@ const UserInfo = ({ token, address, type }) => {
     <div
       onMouseEnter={() => setShowLogout(true)}
       onMouseLeave={() => setShowLogout(false)}
-      className="flex gap-2 items-center  w-full relative "
+      className="flex gap-2 items-center  w-full relative  py-4"
     >
       <div className="flex flex-col ">
         <div className="flex items-center gap-2 justify-end">
@@ -32,7 +32,7 @@ const UserInfo = ({ token, address, type }) => {
       <div className="">
         <img src={userImage} alt="" />
       </div>
-      <div className="absolute top-[45px] right-0 bg-[#333333]">
+      <div className="absolute top-[76px] right-0 bg-[#333333]">
         {showLogout && type === "ETH" ? (
           <LogoutEth />
         ) : showLogout && type === "SOL" ? (

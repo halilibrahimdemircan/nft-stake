@@ -10,7 +10,7 @@ const Header = () => {
   const { state } = useAppContext();
 
   return (
-    <div className="w-full flex justify-between items-center font-rubik px-[60px]">
+    <div className="w-full flex justify-between items-center font-rubik px-[60px] h-full">
       <div>
         <Link to={"/"}>
           <img src={mbLogo} alt="" />

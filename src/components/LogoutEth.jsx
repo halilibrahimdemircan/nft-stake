@@ -11,7 +11,7 @@ const LogoutEth = () => {
   };
   return (
     <div
-      className="border whitespace-nowrap px-4 h-12 rounded-lg flex items-center justify-start min-w-[200px] cursor-pointer"
+      className="border whitespace-nowrap px-4 h-12 rounded-lg flex items-center justify-start w-[140px] cursor-pointer"
       onClick={() => logoutEth()}
     >
       Logout

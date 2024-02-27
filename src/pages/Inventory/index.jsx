@@ -30,16 +30,14 @@ const Inventory = () => {
 
   return (
     <div className="flex flex-col w-full h-full gap-8 items-center">
-      <div className="flex flex-col w-full items-center   bg-[#1A1A1A52] pt-7 ">
+      <div className="flex flex-col w-full items-center justify-center   bg-[#1A1A1A52] h-[115px] ">
         <Header />
         <div
-          className="w-full h-[2px] mt-7"
+          className="w-full h-[2px] "
           style={{
             borderRadius: "256px",
             background:
-              state.activeNetwork === "SOL"
-                ? "linear-gradient(93deg, #14ECAB 0%, #C03CF4 53.86%, #DB5CFF 99.62%)"
-                : "linear-gradient(93deg, #494949 0%, #515151 53.86%, #1F1F1F 99.62%)",
+              "linear-gradient(93deg, #14ECAB 0%, #C03CF4 53.86%, #DB5CFF 99.62%)",
             boxShadow: "0px 4px 16px 0px rgba(75, 181, 195, 0.48)",
           }}
         ></div>

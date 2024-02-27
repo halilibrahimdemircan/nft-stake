@@ -115,7 +115,8 @@ const ConnectEthereum = () => {
           key={2}
         />
       ) : (
-        <div
+        <button
+          onClick={signIn}
           style={{
             borderRadius: "8px",
             border: "0.6px solid #868686",
@@ -134,10 +135,8 @@ const ConnectEthereum = () => {
           )}
       </div> */}
           <span>{ethSvg()}</span>
-          <button className="" onClick={signIn}>
-            Sign with Ethereum
-          </button>
-        </div>
+          <div className="">Sign with Ethereum</div>
+        </button>
       )}
     </>
   );
